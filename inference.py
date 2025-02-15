@@ -14,8 +14,8 @@ from transformers.trainer_utils import set_seed
 
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/train')
-from evaluation._utils.utils import concat_close, remove_short
-from train.model import Model
+from utils import concat_close, remove_short
+from model import Model
 
 def merge_events(event_lists):
     merged_events = {}
