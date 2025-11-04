@@ -202,12 +202,15 @@ def main(audio_folder_path, output_dir, model_path, input_sec=7, batch_size=10):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--audio_folder_path', type=str, required=True)
+    parser.add_argument('--audio_folder_path', type=str, required=False)
     parser.add_argument('--output_dir', type=str, default="./output")
     parser.add_argument('--model_path', type=str, default="./models/model.safetensors")
     args = parser.parse_args()
     path_ini = '/home/vbarrier/data/standup/audio/'
-    for lang in ['pt', 'it', 'fr', 'hu', 'es_paula', 'pl', 'cs']:
+    # for lang in ['pt', 'it', 'fr', 'hu', 'es_paula', 'pl', 'cs', 'es_latam', 'es', 'fr', 'en_us', 'en_uk']:
+    for lang in ['fr_ca', 'es_ch']:
+    # for lang in ['test_latam']:
         audio_folder_path = f"{path_ini}{lang}/"
-        output_dir = audio_folder_path+'../../laughter_detection/'
+        output_dir = audio_folder_path+f'../../laughter_detection/{lang}/'
+        # output_dir = audio_folder_path+f'../../laughter_detection/'
         main(audio_folder_path, output_dir, args.model_path)
